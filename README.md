@@ -62,8 +62,6 @@ This system utilizes a Retrieval-Augmented Generation (RAG)  to process various 
 
 ## File Overview
 
-## File Overview
-
 - **constants.py**: Defines and initializes the LLM, embedding models, and vector database.
 - **vector_store.py**: Contains functions for data preprocessing, embedding generation, and vector database storage (FAISS).
 - **model.py**: Implements context retrieval and response generation using the LLM.
