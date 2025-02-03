@@ -1,0 +1,11 @@
+User Query,Retrieval Keywords
+What are Jenkins pipelines?,"Jenkins, pipelines, automation, continuous integration"
+How do Jenkins pipelines work?,"Jenkins, pipelines, steps, stages, workflow"
+What is the difference between declarative and scripted pipelines?,"declarative pipeline, scripted pipeline, Jenkins"
+How can Jenkins pipelines be triggered?,"Jenkins, pipeline triggers, automation, SCM"
+What is the role of Jenkinsfile in pipelines?,"Jenkinsfile, pipelines, configuration, code"
+How do you run tests in a Jenkins pipeline?,"Jenkins, pipeline, test automation, steps"
+What is parallel execution in Jenkins pipelines?,"parallel execution, Jenkins, pipelines, concurrency"
+How can you handle failures in Jenkins pipelines?,"Jenkins, pipeline failure, error handling, retries"
+What is the purpose of Jenkins pipeline agents?,"Jenkins agents, pipeline, execution environment"
+How can Jenkins pipelines be integrated with Docker?,"Jenkins, pipelines, Docker, containerization, CI/CD"

@@ -1,0 +1,11 @@
+User Query,Expected Answer
+What are Jenkins pipelines?,"Jenkins pipelines are automated workflows that allow for the continuous integration and delivery of software, defining stages like build, test, and deploy as code."
+How do Jenkins pipelines work?,"Jenkins pipelines define a series of steps (e.g., build, test, deploy) in stages. These steps run sequentially or in parallel, automating the CI/CD workflow."
+What is the difference between declarative and scripted pipelines?,"A declarative pipeline is a simpler, more structured approach, whereas a scripted pipeline provides more flexibility with custom logic using Groovy scripting."
+How can Jenkins pipelines be triggered?,"Jenkins pipelines can be triggered by events like code commits, manual triggers, or scheduled intervals, making automation flexible and event-driven."
+What is the role of Jenkinsfile in pipelines?,A Jenkinsfile is a configuration file where the pipeline is defined. It includes all stages and steps of the pipeline and is version-controlled alongside the project.
+How do you run tests in a Jenkins pipeline?,"Tests are typically added as a step within a Jenkins pipeline using testing frameworks (e.g., JUnit, Selenium) to automate the execution and reporting of results."
+What is parallel execution in Jenkins pipelines?,"Jenkins pipelines support parallel execution of stages, allowing multiple tasks to be run simultaneously, improving efficiency in CI/CD workflows."
+How can you handle failures in Jenkins pipelines?,Jenkins pipelines allow error handling using the try/catch block or built-in retry steps to handle failures and ensure pipeline stability during execution.
+What is the purpose of Jenkins pipeline agents?,"Jenkins pipeline agents define the environment where the pipeline will run, such as a specific node or Docker container, to execute the pipeline steps."
+How can Jenkins pipelines be integrated with Docker?,"Jenkins pipelines can integrate with Docker by using Docker agents or running Docker commands in pipeline steps, enabling containerized builds and deployments."

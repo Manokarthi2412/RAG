@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document AI</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="https://md-block.verou.me/md-block.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000000;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #008724;
+            color: rgb(255, 255, 255);
+            padding: 20px;
+            text-align: center;
+        }
+        .chat-container {
+            max-width: 90%;
+            margin: 40px auto;
+            color:white;
+            background-color: rgb(0, 0, 0);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #chat_output {
+            margin-bottom: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 10px;
+            margin-bottom: 20px;
+        }
+        .message {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            color:white;
+            background-color: #000000;
+            word-wrap: break-word;
+        }
+        .user-message {
+            color:white;
+            background-color: #000000;
+            text-align: left;
+        }
+        .bot-message {
+            color:white;
+            background-color: #000000;
+            text-align: left; /* Ensure bot responses are left-aligned */
+        }
+        .input-container {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            justify-content: space-between;
+            padding-top:10px;
+        }
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #028706;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        a button {
+            margin-top: 20px;
+            width: 100%;
+            background-color: #f44336;
+        }
+        md-block {
+            display: block;
+            text-align: left; /* Ensure text in md-block is left-aligned */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Chat with the Bot</h1>
+    </header>
+
+    <div class="chat-container">
+        <div id="chat_output">
+            <!-- Bot's reply will appear here -->
+        </div>
+
+        <div class="input-container">
+            <label for="user_input">Enter your text:</label>
+            <input type="text" id="user_input" placeholder="Type something...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+
+    </div>
+
+    <script>
+        function sendMessage() {
+            var userInput = document.getElementById('user_input').value;
+            var chatOutput = document.getElementById('chat_output');
+            
+            // Display user message
+            chatOutput.innerHTML += "<div class='message user-message'><strong>You:</strong> " + userInput + "</div>";
+            
+            // Call the Flask backend for chatbot response (to be implemented)
+            fetch('/get_response', {
+                method: 'POST',
+                body: JSON.stringify({ user_input: userInput }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Display bot response in Markdown (formatted as HTML)
+                var botReply = data.reply;
+                
+                // Wrap bot's Markdown reply in <md-block> for rendering
+                chatOutput.innerHTML += "<div class='message bot-message'><strong>Bot:</strong> <md-block>" + botReply + "</md-block></div>";
+                document.getElementById('user_input').value = ""; // clear input field
+
+                // Scroll to the bottom of the chat
+                chatOutput.scrollTop = chatOutput.scrollHeight;
+            })
+            .catch(err => console.error("Error:", err));
+        }
+    </script>
+</body>
+</html>
